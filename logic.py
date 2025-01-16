@@ -1,4 +1,4 @@
-import random as r, string as s
+import random as r, string as s, os, discord
 
 def contra(largo):
     elements = s.ascii_letters+s.ascii_lowercase+s.ascii_uppercase+s.digits+s.punctuation
@@ -18,3 +18,14 @@ def moneda():
         return "Cara"
     else:
         return "Cruz"
+
+def meme():
+    with open("IMG/Decisiones.jpg", "rb") as IMG:
+        pic = discord.File(IMG)
+    return pic
+
+def momasos():
+    listmeme = r.choice(os.listdir("img"))
+    with open(f"IMG/{listmeme}", "rb") as IMG:
+        pic = discord.File(IMG)
+    return pic

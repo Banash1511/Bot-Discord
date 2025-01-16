@@ -1,4 +1,4 @@
-import discord, os, audioop, logic as l
+import discord, os, audioop, logic as l, commandapi as ca
 from dotenv import load_dotenv
 from logic import *
 from discord.ext import commands
@@ -31,5 +31,20 @@ async def password(ctx, lenght=25):
 @bot.command(name = "moneda")
 async def luck(ctx):
     await ctx.send(l.moneda())
+
+@bot.command(name = "meme")
+async def momo(ctx):
+    a = l.meme()
+    await ctx.send(file=a)
+
+@bot.command(name = "momasos")
+async def momaso(ctx):
+    a = l.momasos()
+    await ctx.send(file=a)
+
+@bot.command(name = "pato")
+async def patos(ctx):
+    a = ca.get_duck_image_url()
+    await ctx.send(a)
 
 bot.run(Token)
