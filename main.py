@@ -1,4 +1,4 @@
-import discord, os, audioop, logic as l, commandapi as ca
+import discord, os, audioop, logic as l, commandapi as ca, ambiente as am
 from dotenv import load_dotenv
 from logic import *
 from discord.ext import commands
@@ -46,5 +46,18 @@ async def momaso(ctx):
 async def patos(ctx):
     a = ca.get_duck_image_url()
     await ctx.send(a)
+
+@bot.command(name="eco")
+async def ecologia(ctx, opc:int):
+    if opc == 1:
+        await ctx.send(embed=am.bolsas_biod())
+    elif opc ==2:
+        await ctx.send(embed=am.bolsas_biod2())
+    elif opc == 3:
+        await ctx.send(embed=am.bolsas_biod3())
+    
+    else:
+        await ctx.send("esta opcion no existe")
+
 
 bot.run(Token)
